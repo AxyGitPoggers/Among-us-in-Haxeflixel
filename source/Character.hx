@@ -53,6 +53,9 @@ class Character extends FlxSprite
 		
 		// thanks i am using a sparrow atlas for animated sprites - Def
 		// using my own script i wrote called Paths it allows me to get things (lol) use it like Paths.getSparrowAtlas('name'); it looks in all folders in assets - Def
+		
+		// also i used adobe animate to export the frames / it compresses them so they fit really well so it lowers the disc space the spritesheet takes up :) - Def
+		// you do need to add offsets to get the animations crisp i havent done that yet - Def
 	}
 
 	override function update(elapsed:Float)
