@@ -49,6 +49,10 @@ class Character extends FlxSprite
 		// this is how you load images onto FlxSprites
 		loadGraphic("assets/images/sussyamongus.png");
 		// crewmate.png can't be used as the sprites don't line up to a grid properly
+		
+		
+		// thanks i am using a sparrow atlas for animated sprites - Def
+		// using my own script i wrote called Paths it allows me to get things (lol) use it like Paths.getSparrowAtlas('name'); it looks in all folders in assets - Def
 	}
 
 	override function update(elapsed:Float)
