@@ -46,6 +46,9 @@ class Character extends FlxSprite
 			case 'SUSSSYSYSYYSYSYSYSYYS':
 				trace("wtf");
 		}
+		// this is how you load images onto FlxSprites
+		loadGraphic("assets/images/sussyamongus.png");
+		// crewmate.png can't be used as the sprites don't line up to a grid properly
 	}
 
 	override function update(elapsed:Float)

@@ -5,14 +5,15 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.math.FlxPoint;
 import flixel.ui.FlxButton;
 
 class MainMenuState extends FlxState
 {
 	var buttons:Array<String> = ['offline', 'quit'];
 
-	public var screencenter:FlxObject = new FlxObject();
-
+	// public var screencenter:FlxObject = new FlxObject();
+	var screencenter:FlxPoint; // try using a FlxPoint for something like this instead? So that you don't inherit loads of stuff you don't need from FlxObject
 	var camFollow:FlxObject;
 	var curSelected:Int = 0;
 
@@ -20,7 +21,9 @@ class MainMenuState extends FlxState
 
 	override public function create()
 	{
-		screencenter.screenCenter();
+		// screencenter.screenCenter();
+		screencenter = new FlxPoint(FlxG.width / 2, FlxG.height / 2); // sets the X and Y values to half the screen width and half the screen height
+
 		super.create();
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
@@ -49,10 +52,12 @@ class MainMenuState extends FlxState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.sound.music.volume < 0.8)
+		// This causes a crash and your menu doesn't load, because you haven't assigned any music to FlxG.sound.music
+
+		/*if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-		}
+		}*/
 
 		if (!selectedSomethin)
 		{
@@ -67,6 +72,11 @@ class MainMenuState extends FlxState
 			}
 			if (FlxG.keys.justPressed.ENTER)
 			{
+				// what is Character.hx? just looking
+				FlxG.switchState(new TestPlayState());
+
+				/* You don't need this! :)
+
 				if (buttons[curSelected] == 'donate')
 				{
 					#if linux
@@ -74,7 +84,7 @@ class MainMenuState extends FlxState
 					#else
 					FlxG.openURL('https://ninja-muffin24.itch.io/funkin');
 					#end
-				}
+				}*/
 			}
 		}
 	}
